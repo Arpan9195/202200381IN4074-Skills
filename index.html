@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Alpha Design Home Decor</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, p, a {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+        }
+
+        /* Container for the shop page */
+        .shop-container {
+            position: relative;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000; /* Background color to ensure contrast */
+        }
+
+        /* Background image styling */
+        .shop-background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            filter: brightness(50%); /* Darkens the background image */
+        }
+
+        /* Centered content wrapper */
+        .content-wrapper {
+            position: relative;
+            color: #fff;
+            text-align: center;
+            z-index: 2;
+            max-width: 800px; /* Max width for content */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Heading styles */
+        .welcome h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: bold; /* Make heading bold */
+        }
+
+        /* Subheading styles */
+        .subheading p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Shop action styles */
+        .shop-action p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        /* Description styles */
+        .description p {
+            font-size: 1rem;
+            margin-bottom: 25px;
+        }
+
+        /* Button styles */
+        .explore-gallery a, 
+        .product-catalog a, 
+        .about-link a, 
+        .community-link a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background: #f8b400; /* Yellow background color */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        /* Button hover effect */
+        .explore-gallery a:hover, 
+        .product-catalog a:hover, 
+        .about-link a:hover, 
+        .community-link a:hover {
+            background: #f8a300; /* Darker yellow for hover effect */
+        }
+    </style>
+</head>
+<body>
+    <div class="shop-container">
+        <img src="./img/shop.jpg" class="shop-background-image" alt="Background Image">
+        <div class="content-wrapper">
+            <div class="welcome">
+                <h1>Welcome to Alpha Design Home Decor</h1>
+            </div>
+            <div class="subheading">
+                <p>Designs that Inspire, Spaces that Soothe</p>
+            </div>
+            <div class="shop-action">
+                <p>Shop for Your Home</p>
+            </div>
+            <div class="description">
+                <p>Explore our collection and find the perfect decor items for your home.</p>
+            </div>
+            <div class="explore-gallery">
+                <a href="design.html">Explore our design gallery</a>
+            </div>
+            <div class="product-catalog">
+                <a href="phpfiles/index.php">Product Catalog</a>
+            </div>
+            <div class="about-link">
+                <a href="About me.html">About Us</a>
+            </div>
+            <div class="community-link">
+                <a href="community.html">Join the Community Forum</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
