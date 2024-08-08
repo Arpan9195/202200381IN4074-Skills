@@ -1,0 +1,90 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Hide scrollbars */
+}
+
+/* Create Account Background */
+.create-account-background {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Create Account Content */
+.create-account-content {
+    text-align: center;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    color: black; /* Text color */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 1; /* Ensure content is above the video */
+}
+
+/* Create Account Form */
+form {
+    margin-top: 20px;
+    background-color: transparent; /* Transparent background */
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"], /* Added password input style */
+input[type="file"] {
+    width: calc(100% - 30px); /* Ensure full width with padding */
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: transparent; /* Transparent background */
+    font-size: 1em;
+    color: black; /* Input text color */
+}
+
+/* Submit Button */
+button[type="submit"] {
+    margin-top: 30px;
+    background-color: #4CAF50; /* Button background color */
+    color: white; /* Button text color */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049; /* Button background color on hover */
+}
+
+/* Link Styles */
+a {
+    color: #4CAF50; /* Link color */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

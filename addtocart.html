@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="addtocart.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <h1>Shopping Cart</h1>
+    <ul id="cartItems"></ul>
+
+    <script>
+        // Fetch cart items from JSON file
+        fetch('file:///C:/Users/arpan/Downloads/cart_items.json')
+            .then(response => response.json())
+            .then(cartItems => {
+                const cartItemsList = document.getElementById('cartItems');
+                
+                cartItems.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = `${item.itemName} - $${item.cost}`;
+                    cartItemsList.appendChild(li);
+                });
+            })
+            .catch(error => console.error('Error fetching cart items:', error));
+    </script>
+</body>
+</html>

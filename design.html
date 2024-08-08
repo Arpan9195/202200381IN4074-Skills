@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Gallery - Alpha Design Home Decor</title>
+    <link rel="stylesheet" href="design_gallery.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .design-entry {
+            display: flex;
+            flex-direction: column;
+            width: 48%;
+            margin: 1%;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+        }
+        .design-entry img {
+            width: 100%;
+            height: auto;
+        }
+        .design-info {
+            padding: 15px;
+        }
+        .design-info h2 {
+            margin: 0 0 10px;
+        }
+        .design-info p {
+            margin: 5px 0;
+        }
+        .design-info button {
+            margin: 5px 5px 0 0;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .design-info button.move-to-wishlist {
+            background-color: #6c757d;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 10px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+        }
+        .filter {
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .filter label, .filter select {
+            margin: 0 10px;
+        }
+        .cart-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        #notification {
+            display: none;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function filterDesigns() {
+            const roomFilter = document.getElementById('room-filter').value;
+            const colorFilter = document.getElementById('color-filter').value;
+
+            const designs = document.querySelectorAll('.design-entry');
+
+            designs.forEach(design => {
+                const room = design.getAttribute('data-room');
+                const color = design.getAttribute('data-color');
+
+                if ((roomFilter === 'all' || room === roomFilter) && (colorFilter === 'all' || color === colorFilter)) {
+                    design.style.display = 'flex';
+                } else {
+                    design.style.display = 'none';
+                }
+            });
+        }
+
+        function addToCart(itemName, cost) {
+            // Simulate adding the item to the cart
+            // You would typically perform some AJAX request here to update the user's cart on the server side
+
+            // Display notification
+            const notification = document.getElementById('notification');
+            notification.innerText = `${itemName} has been added to your cart.`;
+            notification.style.display = 'block';
+
+            // Hide the notification after a few seconds
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000); // 3000 milliseconds = 3 seconds
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            filterDesigns();
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Design Gallery</h1>
+        <a href="addtocart.html" class="cart-icon">
+            <img src="C:\Users\arpan\OneDrive\Imágenes\Saved Pictures\e51195a953682056f2e3b94be4fed935.png" alt="Cart" width="50">
+        </a>
+        <!-- Add this div at the top of your <body> to show the notification -->
+        <div id="notification"></div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="design.html">Design Gallery</a></li>
+            <li><a href="phpfiles/index.php">Product Catalog</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="filter">
+            <label for="room-filter">Filter by Room:</label>
+            <select id="room-filter" onchange="filterDesigns()">
+                <option value="all">All</option>
+                <option value="living-room">Living Room</option>
+                
+                <option value="kitchen">Kitchen</option>
+                <!-- Add more options as needed -->
+            </select>
+
+            <label for="color-filter">Filter by Color Scheme:</label>
+            <select id="color-filter" onchange="filterDesigns()">
+                <option value="all">All</option>
+                <option value="neutral">Neutral</option>
+                <option value="warm">Warm</option>
+                <option value="cool">Cool</option>
+                <option value="vibrant">Vibrant</option>
+                <option value="monochrome">Monochrome</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+
+        <div class="gallery" id="gallery">
+            <!-- Living Room Entries -->
+            <div class="design-entry" data-room="living-room" data-color="vibrant">
+                <img src="./img/vibrantliving room.jpg" alt="Vibrant Living Room Design 1">
+                <div class="design-info">
+                    <h2>Vibrant Living Room</h2>
+                    <p>By Designer Name</p>
+                    <p>Description of the vibrant living room design.</p>
+                    <p><strong>Cost: $2,500</strong></p>
+                    <button onclick="addToCart('Vibrant Living Room', 2500)">Add to Cart</button>
+                    <button class="move-to-wishlist" onclick="moveToWishlist('Vibrant Living Room')">Move to Wishlist</button>
+                </div>
+            </div>
+            <div class="design-entry" data-room="living-room" data-color="monochrome">
+                <img src="./img/NUETRALLIVINGROOM2.jpg" alt="Monochrome Living Room Design 2">
+                <div class="design-info">
+                    <h2>Monochrome Living Room</h2>
+                    <p>By Designer Name</p>
+                    <p>Description of the monochrome living room design.</p>
+                    <p><strong>Cost: $3,000</strong></p>
+                    <button onclick="addToCart('Monochrome Living Room', 3000)">Add to Cart</button>
+                    <button class="move-to-wishlist" onclick="moveToWishlist('Monochrome Living Room')">Move to Wishlist</button>
+                </div>
+            </div>
+
+            <!-- Bedroom Entries -->
+            <div class="design-entry" data-room="bedroom" data-color="vibrant">
+                <img src="./img/vibrantbedroom22.jpg" alt="Vibrant Bedroom Design 1">
+                <div class="design-info">
+                    <h2>Vibrant Bedroom</h2>
+                    <p>By Designer Name</p>
+                    <p>Description of the vibrant bedroom design.</p>
+                    <p><strong>Cost: $2,200</strong></p>
+                    <button onclick="addToCart('Vibrant Bedroom', 2200)">Add to Cart</button>
+                    <button class="move-to-wishlist" onclick="moveToWishlist('Vibrant Bedroom')">Move to Wishlist</button>
+                </div>
+            </div>
+            <div class="design-entry" data-room="living-room" data-color="monochrome">
+                <img src="./img/modernbedroom.png" alt="Monochrome living-room">
+                <div class="design-info">
+                    <h2>Monochrome Bedroom</h2>
+                    <p>By Designer Name</p>
+                    <p>Description of the monochrome living room design.</p>
+                    <p><strong>Cost: $2,500</strong></p>
+                    <button onclick="addToCart('Monochrome living-room', 2500)">Add to Cart</button>
+                    <button class="move-to-wishlist" onclick="moveToWishlist('Monochrome living-room')">Move to Wishlist</button>
+                </div>
+            </div>
+
+            <!-- Kitchen Entries -->
+            <div class="design-entry" data-room="kitchen" data-color="vibrant">
+                <img src="./img/vibrantkitchen2.jpg" alt="Vibrant Kitchen Design 1">
+                <div class="design-info">
+                    <h2>Vibrant Kitchen</h2>
+                    <p>By Designer Name</p>
+                    <p>Description of the vibrant kitchen design.</p>
+                    <p><strong>Cost: $2,800</strong></p>
+                    <button onclick="addToCart('Vibrant Kitchen', 2800)">Add to Cart</button>
+                    <button class="move-to-wishlist" onclick="moveToWishlist('Vibrant Kitchen')">Move to Wishlist</button>
+                </div>
+            </div>
+            <div class="design-entry" data-room="kitchen" data-color="monochrome">
+                <img src="./img/nuetralkitchen1.png" alt="Monochrome Kitchen Design 2">
+                <div class="design-info">
+                    <h2>Monochrome Kitchen</h2>
+                    <p>By Designer Name</p>
+                    <p>Description of the monochrome kitchen design.</p>
+                    <p><strong>Cost: $3,200</strong></p>
+                    <button onclick="addToCart('Monochrome Kitchen', 3200)">Add to Cart</button>
+                    <button class="move-to-wishlist" onclick="moveToWishlist('Monochrome Kitchen')">Move to Wishlist</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

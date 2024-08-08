@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog - Alpha Design Home Decor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #f8f9fa;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        nav {
+            background-color: #343a40;
+            padding: 10px 20px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            margin: 0 10px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+        .main {
+            padding: 20px;
+        }
+        .filter {
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .filter label, .filter select {
+            margin: 0 10px;
+        }
+        .catalog {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .product-entry {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            margin: 1%;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+        }
+        .product-entry img {
+            width: 100%;
+            height: auto;
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-info h2 {
+            margin: 0 0 10px;
+        }
+        .product-info p {
+            margin: 5px 0;
+        }
+        .product-info button {
+            margin: 5px 5px 0 0;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product-info button.move-to-wishlist {
+            background-color: #6c757d;
+        }
+        .product-info button:hover {
+            opacity: 0.8;
+        }
+        @media (max-width: 768px) {
+            .product-entry {
+                width: 45%;
+            }
+        }
+        @media (max-width: 576px) {
+            .product-entry {
+                width: 100%;
+            }
+            .filter {
+                flex-direction: column;
+            }
+            .filter label, .filter select {
+                margin: 5px 0;
+            }
+        }
+    </style>
+    <script>
+        function filterProducts() {
+            const typeFilter = document.getElementById('type-filter').value;
+            const styleFilter = document.getElementById('style-filter').value;
+
+            const products = document.querySelectorAll('.product-entry');
+
+            products.forEach(product => {
+                const type = product.getAttribute('data-type');
+                const style = product.getAttribute('data-style');
+
+                if ((typeFilter === 'all' || type === typeFilter) && (styleFilter === 'all' || style === styleFilter)) {
+                    product.style.display = 'flex';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        function addToCart(productName, price) {
+            alert(`Added ${productName} to cart for $${price}`);
+        }
+
+        function moveToWishlist(productName) {
+            alert(`Moved ${productName} to wishlist`);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            filterProducts();
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Product Catalog</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="design.html">Design Gallery</a></li>
+            <li><a href="community.html">Community</a></li>
+        </ul>
+    </nav>
+    <main class="main">
+        <div class="filter">
+            <label for="type-filter">Filter by Type:</label>
+            <select id="type-filter" onchange="filterProducts()">
+                <option value="all">All</option>
+                <option value="furniture">Furniture</option>
+                <option value="rugs">Rugs</option>
+                <option value="lamps">Lamps</option>
+                <option value="wall-art">Wall Art</option>
+            </select>
+
+            <label for="style-filter">Filter by Style:</label>
+            <select id="style-filter" onchange="filterProducts()">
+                <option value="all">All</option>
+                <option value="modern">Modern</option>
+                <option value="traditional">Traditional</option>
+                <option value="industrial">Industrial</option>
+                <option value="bohemian">Bohemian</option>
+            </select>
+        </div>
+
+        <div class="catalog" id="catalog">
+            <!-- Furniture Entries -->
+            <div class="product-entry" data-type="furniture" data-style="modern">
+                <img src="img/modernsofa.jpg" alt="Modern Sofa">
+                <div class="product-info">
+                    <h2>Modern Sofa</h2>
+                    <p>By Designer Name</p>
+                    <p>Elegant and comfortable, this modern sofa features clean lines and plush cushions, perfect for any contemporary living space.</p>
+                    <p><strong>Price: $1,500</strong></p>
+                    <button onclick="addToCart('Modern Sofa', 1500)">Add to Cart</button>
+                    <button class="move-to-wishlist" onclick="moveToWishlist('Modern Sofa')">Move to Wishlist</button>
+                </div>
+            </div>
+            <div class="product-entry" data-type="furniture" data-style="modern">
+                <img src="img/modernsofa2.jpg" alt="Modern Sofa (Alternate)">
+                <div class="product-info">
+                    <h2>Modern Sofa (Alternate)</h2>
+                    <p>By Designer Name</p>
+                    <p>Featuring a sleek design with a unique pattern, this alternate modern sofa adds a touch of sophistication to your home decor.</p>
+                    <p><strong>Price: $1,500</strong></p>
+                    <button onclick="addToCart('Modern Sofa (Alternate)', 1500)">Add to Cart</button>
+                    <button class="move-to-wishlist" onclick="moveToWishlist('Modern Sofa (Alternate)')">Move to Wishlist</button>
+                </div>
+            </div>
+            <div class="product-entry" data-type="furniture" data-style="traditional">
+                <img src="img/traditional_armchair.png" alt="Traditional Armchair">
+                <div class="product-info">
+                    <h2>Traditional Armchair</h2>
+                    <p>By Designer Name</p>
+                    <p>Classic armchair with intricate details and luxurious upholstery, ideal for adding a touch of elegance to any traditional setting.</p>
+                    <p><strong>Price: $700</strong></p>
+                    <button onclick="addToCart('Traditional Armchair', 700)">Add to Cart</button>
+                    <button class="move-to-wishlist" onclick="moveToWishlist('Traditional Armchair')">Move to Wishlist</button>
+                </div>
+            </div>
+            <div class="product-entry" data-type="furniture" data-style="industrial">
+                <img src="img/industrial_furniture.jpg" alt="Industrial Furniture">
+                <div class="product-info">
+                    <h2>Industrial Furniture</h2>
+                    <p>By Designer Name</p>
+                    <p>Rustic and robust, this industrial-style furniture is crafted from reclaimed materials, perfect for a modern loft or warehouse-style home.</p>
+                    <p><strong>Price: $900</strong></p>
+                    <button onclick="addToCart('Industrial Furniture', 900)">Add to Cart</button>
+                    <button class="move-to-wishlist" onclick="moveToWishlist('Industrial Furniture')">Move to Wishlist</button>
+                </div>
+            </div>
+            <div class="product-entry" data-type="furniture" data-style="bohemian">
+                <img src="img/bohemian_furniture.jpg" alt="Bohemian Furniture">
+                <div class="product-info">
+                    <h2>Bohemian Furniture</h2>
+                    <p>By Designer Name</p>
+                    <p>Embrace vibrant colors and eclectic patterns with this bohemian furniture, designed to bring a relaxed and artistic vibe to your space.</p>
+                    <p><strong>Price: $950</strong></p>
+                    <button onclick="addToCart('Bohemian Furniture', 950)">Add to Cart</button>
+                    <button class="move-to-wishlist" onclick="moveToWishlist('Bohemian Furniture')">Move to Wishlist</button>
+                </div>
+            </div>
+            <!-- Add more product entries as needed -->
+        </div>
+    </main>
+</body>
+</html>

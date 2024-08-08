@@ -1,0 +1,90 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: seagreen;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+  background-color: seagreen;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 20px;
+}
+
+/* Filter Styles */
+.filter {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.filter label {
+  margin-right: 10px;
+}
+
+.filter select {
+  margin-right: 20px;
+}
+
+/* Design Entry Styles */
+.design-entry {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  overflow: hidden;
+  width: 600px;
+}
+
+.design-entry img {
+  width: 100%;
+  height: auto;
+}
+
+.design-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.design-info h2 {
+  margin: 10px 0;
+  color: seagreen;
+}
+
+.design-info p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.design-info p strong {
+  color: seagreen;
+}
+
+  

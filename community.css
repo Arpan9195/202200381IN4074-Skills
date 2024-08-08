@@ -1,0 +1,149 @@
+/* community.css */
+
+/* Reset some basic elements */
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2em;
+}
+
+/* Navigation */
+nav {
+    background-color: #444;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Main content area */
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Forum topic section */
+.forum-topic {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.forum-topic h2 {
+    margin-bottom: 10px;
+}
+
+.forum-topic p {
+    margin-bottom: 20px;
+}
+
+.forum-topic form {
+    display: flex;
+    flex-direction: column;
+}
+
+.forum-topic form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.forum-topic form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.forum-topic form button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.forum-topic form button:hover {
+    background-color: #218838;
+}
+
+/* Contact Us Section */
+.contact-us {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-us h2 {
+    margin-bottom: 10px;
+}
+
+.contact-us p {
+    margin-bottom: 10px;
+}
+
+.contact-us ul {
+    list-style: none;
+}
+
+.contact-us ul li {
+    margin-bottom: 5px;
+}
+
+.contact-us ul li a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-us ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
